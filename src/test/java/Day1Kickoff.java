@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.Select;
@@ -19,8 +20,18 @@ import static org.junit.Assert.assertEquals;
 public class Day1Kickoff {
 
     public static void main(String[] args) throws IOException {
+
+        FirefoxBinary firefoxBinary =new FirefoxBinary();
+        firefoxBinary.addCommandLineOptions("--headless");
+
         System.setProperty("webdriver.gecko.driver", "src/test/Webdriver/geckodriver.exe");
-        WebDriver driver=new FirefoxDriver(new FirefoxOptions().setAcceptInsecureCerts(true));
+
+        FirefoxOptions firefoxOptions=new FirefoxOptions();
+        firefoxOptions.setBinary(firefoxBinary);
+        firefoxOptions.setAcceptInsecureCerts(true);
+
+
+        WebDriver driver=new FirefoxDriver(firefoxOptions);
         driver.get("http://live.demoguru99.com/index.php/");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.MILLISECONDS);
 
