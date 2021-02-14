@@ -12,6 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class CommonFeatures {
@@ -83,8 +86,42 @@ public class CommonFeatures {
         }else return;
     }
 
+    public static String getMainWindows(){
+        return driver.getWindowHandle();
+    }
+    public static void switchToChildWindow(String mainWindow){
 
 
+        // To handle all new opened window.
+        Set<String> s1=driver.getWindowHandles();
+        Iterator<String> i1=s1.iterator();
+
+        while(i1.hasNext())
+        {
+            String ChildWindow=i1.next();
+
+            if(!mainWindow.equalsIgnoreCase(ChildWindow))
+            {
+
+                // Switching to Child window
+                driver.switchTo().window(ChildWindow);
+
+            }
+        }
+
+    }
+
+    public static void switchToParentWindows(String mainWindow){
+
+        driver.switchTo().window(mainWindow);
+    }
+
+    public static void switchToNewWindows(){
+        // switching to new window
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+        }
+    }
 
 
     public static void takeScreenShot(WebDriver driver, String filename)throws IOException {
@@ -93,5 +130,9 @@ public class CommonFeatures {
         File desFile=new File("./src/test/IMG/"+filename+".png");
         FileUtils.copyFile(srcFile,desFile);
 
+    }
+
+    public static boolean compareList(List ls1, List ls2){
+        return ls1.toString().contentEquals(ls2.toString())?true:false;
     }
 }
