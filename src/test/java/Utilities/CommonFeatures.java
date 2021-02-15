@@ -85,7 +85,11 @@ public class CommonFeatures {
             new Select(element).selectByVisibleText(text);
         }else return;
     }
-
+    public static void check(WebElement element){
+        if(!element.isSelected()){
+            element.click();
+        }else return;
+    }
     public static String getMainWindows(){
         return driver.getWindowHandle();
     }

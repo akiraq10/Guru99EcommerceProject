@@ -19,6 +19,9 @@ public class MainPage {
     @FindBy(linkText = "TV")
     WebElement lnkTV;
 
+    @FindBy(linkText = "ACCOUNT") WebElement lnkACCOUNT;
+    @FindBy(linkText = "Register") WebElement lnkRegisterAccount;
+
     @FindBy(tagName = "h2")
     WebElement pageContain;
 
@@ -42,6 +45,12 @@ public class MainPage {
 
     public void cliccOnTV(){
         click(lnkTV);
+    }
+    public void clickOnAccount(){
+        click(lnkACCOUNT);
+    }
+    public void clickOnRegisterAccount(){
+        click(lnkRegisterAccount);
     }
 
 

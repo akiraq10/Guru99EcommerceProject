@@ -1,5 +1,6 @@
 package Test;
 
+import POM.MainPage;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import static Utilities.CommonFeatures.*;
 public class Hook {
 
     WebDriver driver;
+    MainPage mainPage;
     @BeforeTest
     public void setup(){
         driver=gotoWebsite("firefox","http://live.demoguru99.com/index.php/");
