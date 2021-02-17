@@ -21,6 +21,7 @@ public class MainPage {
 
     @FindBy(linkText = "ACCOUNT") WebElement lnkACCOUNT;
     @FindBy(linkText = "Register") WebElement lnkRegisterAccount;
+    @FindBy(linkText = "My Account") WebElement lnkMyAccount;
 
     @FindBy(tagName = "h2")
     WebElement pageContain;
@@ -51,6 +52,9 @@ public class MainPage {
     }
     public void clickOnRegisterAccount(){
         click(lnkRegisterAccount);
+    }
+    public void clickOnMyAccount(){
+        click(lnkMyAccount);
     }
 
 

@@ -15,7 +15,7 @@ public class Hook {
     MainPage mainPage;
     @BeforeTest
     public void setup(){
-        driver=gotoWebsite("firefox","http://live.demoguru99.com/index.php/");
+        driver=gotoWebsite("chrome","http://live.demoguru99.com/index.php/");
 
     }
     @AfterTest

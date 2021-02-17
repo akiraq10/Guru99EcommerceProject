@@ -5,10 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.assertEquals;
+import static Utilities.CommonFeatures.*;
 
 public class MyDashBoardPage extends MainPage{
 
     @FindBy(className = "success-msg") WebElement msgRegisterSuccessful;
+    @FindBy(linkText = "MY WISHLIST") WebElement lnkMyWishList;
 
     public MyDashBoardPage(WebDriver driver) {
         super(driver);
@@ -16,5 +18,8 @@ public class MyDashBoardPage extends MainPage{
 
     public void checkRegisterSuccessful(){
         assertEquals("Thank you for registering with Main Website Store.",msgRegisterSuccessful.getText());
+    }
+    public void clickOnMyWishlist(){
+        click(lnkMyWishList);
     }
 }

@@ -5,6 +5,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -25,6 +27,12 @@ public class CommonFeatures {
     public static WebDriver Browser(String browser){
         switch (browser) {
             case "chrome":
+                System.setProperty("webdriver.chrome.driver", "src/test/Webdriver/chromedriver.exe");
+                ChromeOptions chromeOptions=new ChromeOptions();
+//                chromeOptions.addArguments("--headless");
+                chromeOptions.setAcceptInsecureCerts(true);
+                driver = new ChromeDriver(chromeOptions);
+
                 break;
             case "firefox":
                 FirefoxBinary firefoxBinary =new FirefoxBinary();
@@ -43,6 +51,7 @@ public class CommonFeatures {
 
         }
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
+        driver.manage().window().maximize();
         return driver;
     }
 

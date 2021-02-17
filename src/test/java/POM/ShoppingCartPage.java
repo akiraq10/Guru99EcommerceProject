@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
 public class ShoppingCartPage extends MainPage{
 
 
-    @FindBy(xpath = "//td[@class='product-cart-actions']//input[@data-cart-item-id='MOB001']")
-    WebElement txtQTYSony;
-
+    @FindBy(xpath = "//td[@class='product-cart-actions']//input[@data-cart-item-id='MOB001']") WebElement txtQTYSony;
+    @FindBy(xpath = "//td[@class='product-cart-actions']//input[@data-cart-item-id='TV001']") WebElement txtQTYLGLCD;
+    @FindBy(xpath = "//button[@title='Proceed to Checkout']") WebElement btnProceedToCheckout;
     @FindBy(xpath = "//button[@title='Update']") WebElement btnUpdate;
     @FindBy(xpath = "//li[@class='error-msg']") WebElement errorMessage;
 
@@ -49,6 +49,9 @@ public class ShoppingCartPage extends MainPage{
     public void checkNotification(){
         String expectResult="SHOPPING CART IS EMPTY";
         assertEquals(expectResult,getMessageNotification());
+    }
+    public void clickOnProceedToCheckout(){
+        click(btnProceedToCheckout);
     }
 
 
