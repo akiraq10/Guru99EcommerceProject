@@ -11,6 +11,8 @@ public class MyDashBoardPage extends MainPage{
 
     @FindBy(className = "success-msg") WebElement msgRegisterSuccessful;
     @FindBy(linkText = "MY WISHLIST") WebElement lnkMyWishList;
+    @FindBy(linkText = "MY ORDERS") WebElement lnkMyOrders;
+
 
     public MyDashBoardPage(WebDriver driver) {
         super(driver);
@@ -22,4 +24,8 @@ public class MyDashBoardPage extends MainPage{
     public void clickOnMyWishlist(){
         click(lnkMyWishList);
     }
+    public void clickOnMyOrders(){
+        clickOn(lnkMyOrders);
+    }
+
 }

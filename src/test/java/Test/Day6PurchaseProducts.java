@@ -36,8 +36,7 @@ public class Day6PurchaseProducts extends Hook{
     MyWishlistPage myWishlistPage;
     ShoppingCartPage shoppingCartPage;
     CheckoutPage checkoutPage;
-    String email="emailtext12@gmail.com";
-    String pass="123456";
+
 
     @Test
     public void runTest(){

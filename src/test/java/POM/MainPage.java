@@ -1,15 +1,17 @@
 package POM;
 
+import Interfaces.interActions;
+import Utilities.CommonActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-import static Utilities.CommonFeatures.*;
+//import static Utilities.CommonFeatures.*;
 import static org.junit.Assert.assertEquals;
 
-public class MainPage {
+public class MainPage extends CommonActions implements interActions {
 
     WebDriver driver;
 
@@ -41,20 +43,20 @@ public class MainPage {
 
     }
     public void clickOnMOBILE(){
-        click(lnkMOBILE);
+        clickOn(lnkMOBILE);
     }
 
     public void cliccOnTV(){
-        click(lnkTV);
+        clickOn(lnkTV);
     }
     public void clickOnAccount(){
-        click(lnkACCOUNT);
+        clickOn(lnkACCOUNT);
     }
     public void clickOnRegisterAccount(){
-        click(lnkRegisterAccount);
+        clickOn(lnkRegisterAccount);
     }
     public void clickOnMyAccount(){
-        click(lnkMyAccount);
+        clickOn(lnkMyAccount);
     }
 
 
