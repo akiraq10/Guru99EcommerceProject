@@ -1,9 +1,12 @@
 package POM;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 import static Utilities.CommonFeatures.*;
 import static org.junit.Assert.assertEquals;
@@ -16,6 +19,7 @@ public class ShoppingCartPage extends MainPage{
     @FindBy(xpath = "//button[@title='Proceed to Checkout']") WebElement btnProceedToCheckout;
     @FindBy(xpath = "//button[@title='Update']") WebElement btnUpdate;
     @FindBy(xpath = "//li[@class='error-msg']") WebElement errorMessage;
+    @FindBy(xpath = "//table[@id='shopping-cart-totals-table']//tr/td[2]/strong/span[@class='price']") WebElement GrandTotal;
 
     @FindBy(id="empty_cart_button") WebElement btnEmptyCart;
     @FindBy(xpath = "//div[@class='page-title']//h1") WebElement msgNotification;
@@ -52,6 +56,16 @@ public class ShoppingCartPage extends MainPage{
     }
     public void clickOnProceedToCheckout(){
         click(btnProceedToCheckout);
+    }
+    public void fillQTYOfTVLG(String number){
+        fill(txtQTYLGLCD,number);
+    }
+
+    public String getGrandTotals(){
+
+     return GrandTotal.getText();
+
+
     }
 
 

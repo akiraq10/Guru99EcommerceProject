@@ -27,7 +27,7 @@ public class CheckoutPage extends MainPage{
     @FindBy(id="billing:use_for_shipping_no") WebElement chkShipToDifferAddress;
     @FindBy(xpath="//div[@id='checkout-step-billing']//button") WebElement btnContinueAtBillingInfo;
     @FindBy(className = "sp-methods") WebElement textFlatRate;
-    @FindBy(xpath = "//div[@id='checkout-step-shipping_method']//button") WebElement btnContinueAtShippingMethod;
+    @FindBy(xpath = ".//*[@id='shipping-method-buttons-container']/button") WebElement btnContinueAtShippingMethod;
     @FindBy(id="p_method_ccsave") WebElement chkCreditCard;
     @FindBy(id="p_method_checkmo") WebElement chkCheckMoneyOrder;
     @FindBy(xpath = "//div[@id='checkout-step-payment']//button") WebElement btnContinueAtPayInfo;
@@ -89,12 +89,17 @@ public class CheckoutPage extends MainPage{
     public void fillFax(String faxNumber){
         fill(txtFax,faxNumber);
     }
-    public void clickOnContinueAtTab(String page){
+    public void clickOnContinueAtTab(String page)  {
         switch (page){
             case "BillInfo":
                 click(btnContinueAtBillingInfo);
                 break;
             case"ShipMethod":
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 click(btnContinueAtShippingMethod);
                 break;
             case"PaymentInfo":

@@ -12,6 +12,7 @@ public class MyDashBoardPage extends MainPage{
     @FindBy(className = "success-msg") WebElement msgRegisterSuccessful;
     @FindBy(linkText = "MY WISHLIST") WebElement lnkMyWishList;
     @FindBy(linkText = "MY ORDERS") WebElement lnkMyOrders;
+    @FindBy(linkText = "REORDER") WebElement lnkReOrder;
 
 
     public MyDashBoardPage(WebDriver driver) {
@@ -27,5 +28,6 @@ public class MyDashBoardPage extends MainPage{
     public void clickOnMyOrders(){
         clickOn(lnkMyOrders);
     }
+    public void clickOnReOrder(){clickOn(lnkReOrder);}
 
 }
